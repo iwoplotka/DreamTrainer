@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Concept Trainer</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; background-color: #1e1e1e; color: white; }
+        form { background: #333; padding: 20px; border-radius: 8px; display: inline-block; }
+        input, select, button { margin: 10px; padding: 8px; font-size: 16px; }
+        button { background-color: #007bff; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+        #status { margin-top: 20px; font-size: 18px; }
+    </style>
+</head>
+<body>
+    <h1>AI Concept Trainer</h1>
+
+    <form id="train-form">
+        <label for="concept_name">Concept Name:</label>
+        <input type="text" id="concept_name" name="concept_name" required><br><br>
+
+        <label for="images">Upload Images:</label>
+        <input type="file" id="images" name="images" multiple required><br><br>
+
+        <label for="model">Select Model:</label>
+        <select id="model" name="model">
+            <option value="stable-diffusion-v1-4">Stable Diffusion v1-4</option>
+            <option value="stable-diffusion-v1-5">Stable Diffusion v1-5</option>
+            <option value="custom-model">Custom Model</option>
+        </select><br><br>
+
+        <button type="submit">Train</button>
+    </form>
+
+    <div id="status"></div>
+
+    <script>
+        document.getElementById("train-form").addEventListener("submit", async function(event) {
+            event.preventDefault(); // Prevent page reload
+
+            let formData = new FormData(this);
+
+            document.getElementById("status").innerHTML = "⏳ Training started...";
+
+            let response = await fetch("/train", {
+                method: "POST",
+                body: formData
+            });
+
+            let result = await response.json();
+            document.getElementById("status").innerHTML = `✅ ${result.message} (Concept: ${result.concept}, Model: ${result.model})`;
+        });
+    </script>
+</body>
+</html>
