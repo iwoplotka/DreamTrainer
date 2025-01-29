@@ -60,7 +60,7 @@ def generate_images(prompt, model_path, output_dir):
 
     pipeline = load_pipeline(model_path)
 
-    images = pipeline(prompt, num_inference_steps=30, guidance_scale=7.5, num_images_per_prompt=4).images
+    images = pipeline(prompt, num_inference_steps=30, guidance_scale=7.5, num_images_per_prompt=20).images
 
     Path(output_dir).mkdir(parents=True, exist_ok=True)
     saved_images = []
