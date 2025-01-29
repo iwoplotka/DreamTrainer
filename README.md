@@ -3,11 +3,7 @@ Aplikacja webowa do trenowania i generowania obrazów przy użyciu Stable Diffus
 Działa w Google Colab i pozwala użytkownikom trenować modele na własnych zdjęciach.
 
 
-Instrukcja:
--Odpalić plik googlecolab.(https://colab.research.google.com/drive/1lkmYIfzGUaUEMUZqhu1x6euU3mmfsyqB?usp=sharing#scrollTo=zh8ZnC_cDPiu) 
--Wgrać resztę plików do środowiska.
--Przeklikać przez wszystkie komórki w pliku
--Odpalić main.py na końcu google colab i wejść w link ngrok
+
 
 
 Z przykładowego samplu 20 wygenerowanych obrazów na podstawie 5 zdjęć do nauki twarzy Brada Pitta ręcznie oceniłem czy wygenerowany obraz przypomina Brada Pitta. PROMPT= photo of (concept_name) smiling
